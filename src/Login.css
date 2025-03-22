@@ -1,47 +1,74 @@
 .login {
-    display: grid;
-    place-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
 }
 
 .login > img {
     object-fit: contain;
-    height: 70px;
-    margin-top: 20px;
+    height: 80px;
     margin-bottom: 20px;
 }
 
 .login > form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .login > form > input {
-  width: 350px;
-  height: 50px;
-  font-size: 20px;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+    width: 300px;
+    height: 45px;
+    font-size: 16px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login > form > input:focus {
+    border-color: #0074b1;
 }
 
 .login > form > button {
-    width: 365px;
+    width: 310px;
     height: 50px;
-    font-size: large;
+    font-size: 18px;
+    font-weight: bold;
     color: #fff;
     background-color: #0074b1;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login > form > button:hover {
+    background-color: #005f8d;
+}
+
+.login > p {
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .login > p > .login__register {
     color: #0177b7;
     cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.login > p {
-    margin-top: 20px;
+.login > p > .login__register:hover {
+    color: #005f8d;
 }
+

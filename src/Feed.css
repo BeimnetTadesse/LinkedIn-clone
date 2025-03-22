@@ -1,43 +1,60 @@
-.feed{
+.feed {
     flex: 0.6;
     margin: 0 20px;
-
 }
 
-.feed__inputContainer{
- 
-background-color: white;
-padding: 10px;
-padding-bottom: 20px;
-border-radius: 10px;
-margin-bottom: 20px;
+.feed__inputContainer {
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.feed__input{
+.feed__input {
     border: 1px solid lightgrey;
     border-radius: 30px;
     display: flex;
-    padding: 1-px;
+    align-items: center;
+    padding: 1px;
     color: gray;
     padding-left: 15px;
+    width: 100%;
 }
 
 .feed__input > form {
-    display : flex;
+    display: flex;
     width: 100%;
+    align-items: center;
+    gap: 10px; /* Ensures some space between input and button */
 }
-.feed__input > form  > input {
+
+.feed__input > form > input {
     border: none;
     flex: 1;
-    margin-left: 10px;
     outline-width: 0;
     font-weight: 600;
+    padding: 10px;
 }
-.feed__input > form  > button {
-    display: none;
+
+.feed__input > form > button {
+    border: none;
+    background-color: #0073b1;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 0; /* Removed any left margin to align the button to the left */
 }
-.feed__inputOptions{
-    display:flex;
+
+.feed__input > form > button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.feed__inputOptions {
+    display: flex;
     justify-content: space-evenly;
-  
+    margin-top: 10px;
 }

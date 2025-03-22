@@ -19,7 +19,7 @@ function Feed() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        db.collection("posts").orderBy("timestamp" , "desc").onSnapshot(snapshot => (
+        db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => (
             setPosts(snapshot.docs.map(doc => (
                 {
                     id: doc.id,
@@ -34,8 +34,8 @@ function Feed() {
         if (input.trim() !== "") { // Check if the input is not empty or whitespace
             db.collection("posts").add(
                 {
-                    name: user.displayName ,
-                    description: user.email , 
+                    name: user.displayName,
+                    description: user.email,
                     message: input,
                     photoUrl: user.photoUrl || "",
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -63,8 +63,15 @@ function Feed() {
                             onChange={e => setInput(e.target.value)}
                             type="text"
                             onKeyPress={handleKeyPress} // Add event listener for "Enter" key press
+                            placeholder="Start a post" // Placeholder text
                         />
-                        <button type="submit" onClick={sendPost}>Send</button>
+                        <button 
+                            type="submit" 
+                            onClick={sendPost} 
+                            disabled={!input.trim()} // Disable button if input is empty or just whitespace
+                        >
+                           Post
+                        </button>
                     </form>
                 </div>
                 <div className="feed__inputOptions">
@@ -74,14 +81,12 @@ function Feed() {
                     <InputOption Icon={CalendarViewDayIcon} title="Write Article" color="#7FC15E" />
                 </div>
             </div>
-<FlipMove>
-{posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-                <Post key={id} name={name} description={description} message={message} photoUrl={photoUrl} />
-            ))}
- </FlipMove>
-         
 
- 
+            <FlipMove>
+                {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+                    <Post key={id} name={name} description={description} message={message} photoUrl={photoUrl} />
+                ))}
+            </FlipMove>
         </div>
     )
 }
